@@ -3,14 +3,11 @@ const acessos = document.getElementById('acessos');
 
 (async () => {
 
-    const URLData_raw = await fetch('/api/URLData?view=' + window.location.pathname.slice(6))
-    const URLData = await URLData_raw.json()
-
-    console.log(URLData)
-    console.log(informations.generated)
+    const URLData_raw = await fetch('/api/URLData?view=' + window.location.pathname.slice(6))   // Raw fetch of URL Data
+    const URLData = await URLData_raw.json()                                                    // Final fetch of URL Data
 
     informations.generated.value.innerHTML = new Date(URLData._id).toLocaleString('pt-BR').split(' ').join(' - ') + " UTC"
-    informations.customURL.value.innerHTML = `<a href="${window.location.origin}/${URLData.urls.custom}">${window.innerWidth < 600 ? "Abrir" : `${window.location.origin}/view/${URLData.urls.custom}</a>`}`
+    informations.customURL.value.innerHTML = `<a href="${window.location.origin}/${URLData.urls.custom}">${window.innerWidth < 600 ? "Abrir" : `${window.location.origin}/${URLData.urls.custom}</a>`}`
     informations.redirectURL.value.innerHTML = `<a href="${URLData.urls.redirect}">${window.innerWidth < 600 ? "Abrir" : URLData.urls.redirect}</a>`
     informations.viewURL.value.innerHTML = `<a href="${window.location.origin}/view/${URLData.urls.view}">${window.innerWidth < 600 ? "Abrir" : `${window.location.origin}/view/${URLData.urls.view}</a>`}`
 
@@ -70,5 +67,16 @@ function copy(element) {
 }
 
 for (const element of document.getElementsByClassName('copy')) {
+
     element.addEventListener('click', copy.bind(null, element))
+    element.setAttribute('style', 'border: 0; background-color: transparent')
+    
+    const img = document.createElement('img')
+
+    img.setAttribute('width', '30')
+    img.setAttribute('style', "filter: invert(); cursor: pointer;")
+    img.setAttribute('src', "/public/assets/clipboard.png")
+
+    element.appendChild(img)
+
 }

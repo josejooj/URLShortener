@@ -15,7 +15,7 @@ async function post(req: Request, res: Response, next: NextFunction) {
 
         await URLs.findOneAndUpdate({ "urls.custom": customURL.replace(/[^\w]+/g, '') }, { $push: { // Updating the inputs (push to add) 
             inputs: {
-                in: new Date().getTime(),
+                in: Date.getUTCTimestamp(),
                 ip,
                 userAgent: req['headers']['user-agent'],
                 location: JSON.parse(location)

@@ -30,7 +30,7 @@ async function post(req: Request, res: Response) {
         } while (!view_URL)
 
         await new URLs({
-            _id: new Date().getTime(),  // The date who the URL was created
+            _id: Date.getUTCTimestamp(),  // The date who the URL was created
             urls: {
                 view: view_URL,         // The page to view the access
                 custom: urls.custom,    // Custom URL
