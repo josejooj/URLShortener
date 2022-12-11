@@ -4,6 +4,7 @@ public.zip
 squarecloud.app
 squarecloud.config
 node_modules/
+config.json
 
 # Compiled source #
 ###################

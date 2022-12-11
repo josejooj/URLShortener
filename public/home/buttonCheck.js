@@ -1,17 +1,21 @@
 const check = async function () {
 
     let can = false;
-    const url_valid = url.value.match(/https?:\/\/(www\.)?\w+(\.\w+)\/.+/i)
+    const url_valid = url.value.match(/(https?|ftp):\/\/(www\.)?\w+(\.\w+)(\/.*)*/i)
 
+    custom.value = custom.value.replace(/[^\w]+/g, '')
+    
     if (url_valid) {
 
         if (custom.value) {
 
-            const data = await fetch(`customUrlCheck?url=${custom.value}`)
-            console.log(data)
-            if (data.status == 200) can = true
+            const raw_data = await fetch(`api/customURLCheck?URL=${custom.value.replace(/[^\w]+/g, '')}`)
+            const data = await raw_data.json()
+            
+            if (!data.exists) can = true
         
         } else can = true
+        
     }
 
     if (!can) {

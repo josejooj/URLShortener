@@ -4,15 +4,13 @@ import { URLs } from '../Database'
 async function get(req: Request, res: Response) {
     try {
         
-        const url = await URLs.findOne({ _id: req.originalUrl.slice(1) }).exec()
-        
-        console.log(req.originalUrl.slice(1))
-        
-        // @ts-ignore
-        res.redirect(url.to)
-        
+        const URL = await URLs.findOne({ "urls.custom": req.originalUrl.slice(1) }).exec() // Search some entrie in database with this URL
+
+        if (URL) return res.sendFile("./public/redirect/index.html", { root: '.' }) // If exists, redirect to URL
+        else return res.redirect("https://www.google.com/404")                      // else, redirect to 404 google page
+
     } catch (e) {
-        res.status(500).send({ result: e.message })
+        res.status(500).send({ result: JSON.stringify(e.message) }) // Resposta em caso de erro
     }
 }
 

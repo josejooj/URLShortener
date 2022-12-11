@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type='text/css' href="/public/view/style.css">
+    <title>URLShortener</title>
+</head>
+<body>
+    <header>
+        <a href="/"><h3>URL Shortener</h3></a>
+        <a href="https://github.com/josejooj/URLShortener/tree/main"><img src="/public/assets/github_icon.png"></a>
+    </header>
+    <main>
+        <h1> Informações </h1>
+
+        <table>
+            
+            
+            <tr id="info_generated_field">
+                <th id="info_generated_title">Gerado em</th>
+                <td id="info_generated_value"></td>
+                
+            </tr>
+
+
+            <tr id="info_customURL_field">
+                <th id="info_customURL_title">Custom URL</th>
+                <td id="info_customURL_value"></td>
+                <td style="padding: 0">
+                    <button data-to="info_customURL_value" style="border: 0; background-color: transparent" class="copy">
+                        <img src="/public/assets/clipboard.png" width="30" style="filter: invert(); cursor: pointer;">
+                    </button>
+                </td>
+            </tr>
+            
+
+            <tr id="info_redirectURL_field">
+                <th id="info_redirectURL_title">URL to redirect</th>
+                <td id="info_redirectURL_value"></td>
+                <td style="padding: 0">
+                    <button data-to="info_redirectURL_value" style="border: 0; background-color: transparent" class="copy">
+                        <img src="/public/assets/clipboard.png" width="30" style="filter: invert(); cursor: pointer;">
+                    </button>
+                </td>
+            </tr>
+
+
+            <tr id="info_viewURL_field">
+                <th id="info_viewURL_title">View URL</th>
+                <td id="info_viewURL_value"></td>
+                <td style="padding: 0">
+                    <button data-to="info_redirectURL_value" style="border: 0; background-color: transparent" class="copy">
+                        <img src="/public/assets/clipboard.png" width="30" style="filter: invert(); cursor: pointer;">
+                    </button>
+                </td>
+            </tr>
+        </table>
+    
+        <h1 id="Acessos_number">Acessos: </h1>
+
+        <section id="acessos"></section>
+
+    </main>
+
+    <footer>
+        
+    </footer>
+
+    <script src="/public/view/constants.js"></script>
+    <script src="/public/view/script.js"></script>
+</body>
+</html>

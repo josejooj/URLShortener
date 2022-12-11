@@ -1,24 +1,22 @@
-import { get as home } from './home'
-import { post as generateUrl } from './generateUrl'
-import { get as customUrlValid } from './customUrlCheck'
-import { get as redirect } from './redirect'
+import APIRoutes from '../api/main'             // Get routes from API
+import middlewares from '../middlewares/main'
+import { get as home } from './home'            // Get homepage function
+import { get as redirect } from './redirect'    // Get redirect function
+import { get as view } from './view'
 
-const routes = [
+const routes = [           // Creating the routes map
+    ...middlewares,
     {
         route: "/",
         method: 'get',
         function: home
     },
     {
-        route: "/generateUrl",
-        method: "post",
-        function: generateUrl
-    },
-    {
-        route: "/customUrlCheck",
+        route: "/view/:viewUrl",
         method: 'get',
-        function: customUrlValid
+        function: view
     },
+    ...APIRoutes,
     {
         route: "*",
         method: "get",
@@ -26,4 +24,4 @@ const routes = [
     }
 ]
 
-export default routes;
+export default routes;      // Exporting all routes

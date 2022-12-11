@@ -1,0 +1,21 @@
+import { Request, Response, NextFunction } from 'express'
+
+async function get(req: Request, res: Response, next: NextFunction) {
+    try {
+        
+    } catch (e) {
+        res.status(500).send({ result: JSON.stringify(e.message) }) // Resposta em caso de erro
+    }
+}
+
+async function post(req: Request, res: Response, next: NextFunction) {
+    try {
+        
+    } catch (e) {
+        res.status(500).send({ result: JSON.stringify(e.message) }) // Resposta em caso de erro
+    }
+}
+
+
+
+export { get, post }
