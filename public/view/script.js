@@ -23,18 +23,21 @@ const acessos = document.getElementById('acessos');
             "Estado": input.location.regionName,
             "Cidade": input.location.city,
             "Serviço": input.location.org,
-            "User-Agent": input.userAgent
+            "User-Agent": input.userAgent,
+            "Mapa": [input.location.lat, input.location.lng]
         }
-        
+
         for (const x in location) {
 
             const tr = document.createElement('tr')
             const th = document.createElement('th')
             const td = document.createElement('td')
-            
+
             th.innerHTML = x
             th.setAttribute('style', 'max-width: 10vw')
-            td.innerHTML = location[x]
+
+            if (x != "Mapa") td.innerHTML = location[x]
+            else td.appendChild(createMap(location[x]))
 
             tr.appendChild(th)
             tr.appendChild(td)
@@ -50,6 +53,26 @@ const acessos = document.getElementById('acessos');
     }
 
 })()
+
+function createMap(l = [0, 0]) {
+
+    const width = vw / 100 * 50;
+    console.log(width)
+    const div = document.createElement('div')
+    const iframe = document.createElement('iframe')
+
+    iframe.setAttribute('src', `https://www.bing.com/maps/embed?h=280&w=${width < 600 ? "240" : width}&cp=${l[0]}~${l[1]}&lvl=10&typ=d&sty=h&src=SHELL&FORM=MBEDV8`)
+    iframe.setAttribute('scrolling', 'yes')
+    iframe.setAttribute('frameborder', '0')
+    iframe.setAttribute('width', `${width < 600 ? "240" : width}`)
+    iframe.setAttribute('height', '281')
+    iframe.setAttribute('style', 'border-radius: 10px; border: 2px solid black;')
+
+    div.appendChild(iframe)
+
+    return div
+
+}
 
 /**
  * @param {HTMLElement} element 
@@ -70,7 +93,7 @@ for (const element of document.getElementsByClassName('copy')) {
 
     element.addEventListener('click', copy.bind(null, element))
     element.setAttribute('style', 'border: 0; background-color: transparent')
-    
+
     const img = document.createElement('img')
 
     img.setAttribute('width', '30')
