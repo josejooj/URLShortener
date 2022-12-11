@@ -37,8 +37,11 @@ const acessos = document.getElementById('acessos');
             th.setAttribute('style', 'max-width: 10vw')
 
             if (x != "Mapa") td.innerHTML = location[x]
-            else td.appendChild(createMap(location[x]))
-
+            else {
+                if (!location[x][0] || !location[x][1]) continue;
+                else td.appendChild(createMap(location[x]))
+            }
+            
             tr.appendChild(th)
             tr.appendChild(td)
 
