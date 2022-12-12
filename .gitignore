@@ -5,6 +5,7 @@ squarecloud.app
 squarecloud.config
 node_modules/
 config.json
+.env
 
 # Compiled source #
 ###################
