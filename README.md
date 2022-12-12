@@ -3,14 +3,16 @@ URLShortener é um website simples e responsivo feito com `TypeScript`, `JavaScr
 
 ## 🤔 - Como usar?
 
-```py
+```powershell
 git clone https://github.com/josejooj/URLShortener
 cd URLShortener
+New-Item .env
+Set-Content "MONGOURI=SUA URI MONGO"
 npm install
 npm start
 ```
 
-Após fazer isso em uma VPS ou na sua máquina local o site já pode ser acessado em `http://<seu-ip>:80`, e no caso de VPS com conexões abertas, pode ser acessada por todo mundo.
+Após fazer isso via **Powershell** em uma VPS ou na sua máquina local o site já pode ser acessado em `http://<seu-ip>:80`, e no caso de VPS com conexões abertas, pode ser acessada por todo mundo.
 
 ## 🤖 - Como funciona?
 ### Página principal `/`
