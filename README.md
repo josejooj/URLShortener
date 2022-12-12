@@ -43,3 +43,6 @@ Após fazer isso em uma VPS ou na sua máquina local o site já pode ser acessad
     * `Serviço` - O provedor de internet do usuário
     * `User-Agent` - Informações do dispositivo que foi usado para fazer a requisição
     * `Mapa` - Se as coordenadas do servidor do provedor estiverem disponíveis, é exibido a localização no mapa
+
+# Como testar?
+Eu criei um projeto no `repl.it` para que o site possa ser testado publicamente, basta acessar o website https://replit.com/@cleiton2040/URLShortener?v=1
